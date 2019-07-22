@@ -7,6 +7,10 @@
 
 [![Travis build
 status](https://travis-ci.org/EmilHvitfeldt/textdata.svg?branch=master)](https://travis-ci.org/EmilHvitfeldt/textdata)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/textdata)](https://CRAN.R-project.org/package=textdata)
+[![Downloads](http://cranlogs.r-pkg.org/badges/textdata)](https://cran.r-project.org/package=textdata)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3244433.svg)](https://doi.org/10.5281/zenodo.3244433)
 <!-- badges: end -->
 
 The goal of textdata is to provide access to text-related data sets for
@@ -55,7 +59,12 @@ are:
 | v1.0 sentence polarity dataset                                  | `dataset_sentence_polarity()` |
 | AFINN-111 sentiment lexicon                                     | `lexicon_afinn()`             |
 | Hu and Liu’s opinion lexicon                                    | `lexicon_bing()`              |
+| NRC word-emotion association lexicon                            | `lexicon_nrc()`               |
 | Loughran and McDonald’s opinion lexicon for financial documents | `lexicon_loughran()`          |
+| AG’s News                                                       | `dataset_ag_news()`           |
+| DBpedia ontology                                                | `dataset_dbpedia()`           |
+| Trec-6 and Trec-50                                              | `dataset_trec()`              |
+| IMDb Large Movie Review Dataset                                 | `dataset_imdb()`              |
 
 Check out each function’s documentation for detailed information
 (including citations) for the relevant dataset.

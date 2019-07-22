@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -94,7 +95,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -324,18 +325,25 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <li>Add <code>dataset_*.R</code> to the <span class="citation">@include</span> tags in <code>download_functions.R</code>.</li>
 <li>Add the dataset to the table in <code>README.Rmd</code>.</li>
 <li>Add the dataset to <code>_pkgdown.yml</code>.</li>
+<li>Write a bullet in the <code>NEWS.md file</code>.</li>
 </ul>
 <p>What are the guidelines for adding datasets?</p>
 <div id="guidelines-for-textdata-datasets" class="section level1">
 <h1>Guidelines for textdata datasets</h1>
 <ul>
-<li>Data must be downloaded via https per CRAN policy.</li>
 <li>All datasets must have a license or terms of use clearly specified.</li>
 <li>Data should be a vector or tibble.</li>
 <li>Use <code>word</code> instead of <code>words</code> for column names.</li>
 </ul>
 </div>
+<div id="classification-datasets" class="section level1">
+<h1>Classification datasets</h1>
+<p>For datasets that comes with a testing and training dataset. Let the user pick which one to retrieve with a <code>split</code> argument similar to how <code>dataset_ag_news()</code> is doing.</p>
+</div>
 
+
+
+<!-- code folding -->
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

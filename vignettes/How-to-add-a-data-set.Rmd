@@ -35,12 +35,16 @@ Do you want to add a new dataset to the textdata package?
 - Add `dataset_*.R` to the @include tags in `download_functions.R`.
 - Add the dataset to the table in `README.Rmd`.
 - Add the dataset to `_pkgdown.yml`.
+- Write a bullet in the `NEWS.md file`.
 
 What are the guidelines for adding datasets?
 
 # Guidelines for textdata datasets
 
-- Data must be downloaded via https per CRAN policy.
 - All datasets must have a license or terms of use clearly specified.
 - Data should be a vector or tibble.
 - Use `word` instead of `words` for column names.
+
+# Classification datasets
+
+For datasets that comes with a testing and training dataset. Let the user pick which one to retrieve with a `split` argument similar to how `dataset_ag_news()` is doing.

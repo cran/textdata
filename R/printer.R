@@ -5,11 +5,13 @@
 #' @noRd
 printer <- function(name) {
 
-  title <- cat("Do you want to downlaod:\n",
+  title <- cat("Do you want to download:\n",
                   "Name:", print_info[[name]][["name"]], "\n",
                   "URL:", print_info[[name]][["url"]], "\n",
                   "License:", print_info[[name]][["license"]], "\n",
-                  "Size:", print_info[[name]][["size"]], "\n")
+                  "Size:", print_info[[name]][["size"]], "\n",
+                  "Download mechanism:", print_info[[name]][["download_mech"]], "\n"
+               )
 
   menu(choices = c("Yes", "No"), title = title)
 }
