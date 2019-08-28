@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# textdata
+# textdata <img src='man/figures/logo.png' align="right" height="139" />
 
 <!-- badges: start -->
 
@@ -60,6 +60,8 @@ are:
 | AFINN-111 sentiment lexicon                                     | `lexicon_afinn()`             |
 | Hu and Liu’s opinion lexicon                                    | `lexicon_bing()`              |
 | NRC word-emotion association lexicon                            | `lexicon_nrc()`               |
+| NRC Emotion Intensity Lexicon                                   | `lexicon_nrc_eil()`           |
+| The NRC Valence, Arousal, and Dominance Lexicon                 | `lexicon_nrc_vad()`           |
 | Loughran and McDonald’s opinion lexicon for financial documents | `lexicon_loughran()`          |
 | AG’s News                                                       | `dataset_ag_news()`           |
 | DBpedia ontology                                                | `dataset_dbpedia()`           |

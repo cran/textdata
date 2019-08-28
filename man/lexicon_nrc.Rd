@@ -7,7 +7,8 @@
 \url{http://saifmohammad.com/WebPages/lexicons.html}
 }
 \usage{
-lexicon_nrc(dir = NULL, delete = FALSE, return_path = FALSE)
+lexicon_nrc(dir = NULL, delete = FALSE, return_path = FALSE,
+  clean = FALSE)
 }
 \arguments{
 \item{dir}{Character, path to directory where data will be stored. If
@@ -16,6 +17,9 @@ lexicon_nrc(dir = NULL, delete = FALSE, return_path = FALSE)
 \item{delete}{Logical, set \code{TRUE} to delete dataset.}
 
 \item{return_path}{Logical, set \code{TRUE} to return the path of the dataset.}
+
+\item{clean}{Logical, set \code{TRUE} to remove intermediate files. This can
+greatly reduce the size. Defaults to FALSE.}
 }
 \value{
 A tibble with 13,901 rows and 2 variables:
@@ -33,6 +37,9 @@ with six possible sentiments or emotions: "negative", "positive", "anger",
 The annotations were manually done through Amazon's Mechanical Turk.
 }
 \details{
+License required for commercial use. Please contact Saif M. Mohammad
+(saif.mohammad@nrc-cnrc.gc.ca).
+
 Citation info:
 
 This dataset was published in Saif Mohammad and Peter Turney. (2013),
@@ -69,7 +76,9 @@ lexicon_nrc(return_path = TRUE)
 \seealso{
 Other lexicon: \code{\link{lexicon_afinn}},
   \code{\link{lexicon_bing}},
-  \code{\link{lexicon_loughran}}
+  \code{\link{lexicon_loughran}},
+  \code{\link{lexicon_nrc_eil}},
+  \code{\link{lexicon_nrc_vad}}
 }
 \concept{lexicon}
 \keyword{datasets}

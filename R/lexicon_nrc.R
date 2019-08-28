@@ -5,6 +5,9 @@
 #' "anticipation", "disgust", "fear", "joy", "sadness", "surprise", or "trust".
 #' The annotations were manually done through Amazon's Mechanical Turk.
 #'
+#' License required for commercial use. Please contact Saif M. Mohammad
+#' (saif.mohammad@nrc-cnrc.gc.ca).
+#'
 #' Citation info:
 #'
 #' This dataset was published in Saif Mohammad and Peter Turney. (2013),
@@ -55,11 +58,12 @@
 #' # Returning filepath of data
 #' lexicon_nrc(return_path = TRUE)
 #' }
-lexicon_nrc <- function(dir = NULL, delete = FALSE, return_path = FALSE) {
+lexicon_nrc <- function(dir = NULL, delete = FALSE, return_path = FALSE,
+                        clean = FALSE) {
   load_dataset(data_name = "nrc", name = "NRCWordEmotion.rds",
                dir = dir,
                delete = delete,
-               return_path = return_path)
+               return_path = return_path, clean = clean)
 }
 
 #' @importFrom utils download.file
@@ -70,7 +74,7 @@ download_nrc <- function(folder_path) {
   if (file_exists(file_path)) {
     return(invisible())
   }
-  download.file(url = "http://sentiment.nrc.ca/lexicons-for-research/NRC-Emotion-Lexicon.zip",
+  download.file(url = "http://saifmohammad.com/WebDocs/NRC-Emotion-Lexicon.zip",
                 destfile = file_path)
   unzip(path(folder_path, "NRC-Emotion-Lexicon.zip"),
         exdir = folder_path)
@@ -82,8 +86,13 @@ download_nrc <- function(folder_path) {
 process_nrc <- function(folder_path, name_path) {
 
   data <- read_tsv(path(folder_path,
-                        "NRC-Emotion-Lexicon-v0.92/NRC-Emotion-Lexicon-Wordlevel-v0.92.txt"),
-                   col_names = FALSE)
+                        "NRC-Emotion-Lexicon/NRC-Emotion-Lexicon-v0.92/NRC-Emotion-Lexicon-Wordlevel-v0.92.txt"),
+                   col_names = FALSE, col_types = cols(
+                     X1 = col_character(),
+                     X2 = col_character(),
+                     X3 = col_double()
+                   )
+                   )
 
   data <- data[data$X3 == 1,]
   data <- tibble(word = data$X1,
