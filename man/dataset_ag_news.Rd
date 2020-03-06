@@ -9,8 +9,14 @@
 \url{https://github.com/mhjabreel/CharCnn_Keras/tree/master/data/ag_news_csv}
 }
 \usage{
-dataset_ag_news(dir = NULL, split = c("train", "test"),
-  delete = FALSE, return_path = FALSE, clean = FALSE)
+dataset_ag_news(
+  dir = NULL,
+  split = c("train", "test"),
+  delete = FALSE,
+  return_path = FALSE,
+  clean = FALSE,
+  manual_download = FALSE
+)
 }
 \arguments{
 \item{dir}{Character, path to directory where data will be stored. If
@@ -25,6 +31,10 @@ data. Defaults to "train".}
 
 \item{clean}{Logical, set \code{TRUE} to remove intermediate files. This can
 greatly reduce the size. Defaults to FALSE.}
+
+\item{manual_download}{Logical, set \code{TRUE} if you have manually
+downloaded the file and placed it in the folder designated by running
+this function with \code{return_path = TRUE}.}
 }
 \value{
 A tibble with 120,000 or 30,000 rows for "train" and "test"
@@ -72,8 +82,9 @@ test <- dataset_ag_news(split = "test")
 
 }
 \seealso{
-Other topic: \code{\link{dataset_dbpedia}},
-  \code{\link{dataset_trec}}
+Other topic: 
+\code{\link{dataset_dbpedia}()},
+\code{\link{dataset_trec}()}
 }
 \concept{topic}
 \keyword{datasets}

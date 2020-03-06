@@ -32,10 +32,13 @@
 #' @param return_path Logical, set \code{TRUE} to return the path of the dataset.
 #' @param clean Logical, set \code{TRUE} to remove intermediate files. This can
 #'     greatly reduce the size. Defaults to FALSE.
+#' @param manual_download Logical, set \code{TRUE} if you have manually
+#'     downloaded the file and placed it in the folder designated by running
+#'     this function with \code{return_path = TRUE}.
 #' @return A tibble with 2,477 rows and 2 variables:
 #' \describe{
 #'   \item{word}{An English word}
-#'   \item{sentiment}{Indicator for sentiment: integer between -5 and +5}
+#'   \item{score}{Indicator for sentiment: integer between -5 and +5}
 #' }
 #'
 #' @keywords datasets
@@ -58,9 +61,10 @@
 #' lexicon_afinn(return_path = TRUE)
 #' }
 lexicon_afinn <- function(dir = NULL, delete = FALSE, return_path = FALSE,
-                          clean = FALSE) {
+                          clean = FALSE, manual_download = FALSE) {
   load_dataset(data_name = "afinn", name = "afinn_111.rds", dir = dir,
-               delete = delete, return_path = return_path, clean = clean)
+               delete = delete, return_path = return_path, clean = clean,
+               manual_download = manual_download)
 }
 
 #' @importFrom utils download.file
@@ -79,7 +83,7 @@ process_afinn <- function(folder_path, name_path) {
   data <- read_tsv(file,
                    col_types = cols(
                      word = col_character(),
-                     value = col_double()
+                     score = col_double()
                    ),
                    col_names = c("word", "value"))
   write_rds(data, name_path)

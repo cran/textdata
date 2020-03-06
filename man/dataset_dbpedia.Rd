@@ -11,8 +11,14 @@
 \url{https://github.com/le-scientifique/torchDatasets/raw/master/dbpedia_csv.tar.gz}
 }
 \usage{
-dataset_dbpedia(dir = NULL, split = c("train", "test"),
-  delete = FALSE, return_path = FALSE, clean = FALSE)
+dataset_dbpedia(
+  dir = NULL,
+  split = c("train", "test"),
+  delete = FALSE,
+  return_path = FALSE,
+  clean = FALSE,
+  manual_download = FALSE
+)
 }
 \arguments{
 \item{dir}{Character, path to directory where data will be stored. If
@@ -27,6 +33,10 @@ data. Defaults to "train".}
 
 \item{clean}{Logical, set \code{TRUE} to remove intermediate files. This can
 greatly reduce the size. Defaults to FALSE.}
+
+\item{manual_download}{Logical, set \code{TRUE} if you have manually
+downloaded the file and placed it in the folder designated by running
+this function with \code{return_path = TRUE}.}
 }
 \value{
 A tibble with 560,000 or 70,000 rows for "train" and "test"
@@ -82,8 +92,9 @@ test <- dataset_dbpedia(split = "test")
 
 }
 \seealso{
-Other topic: \code{\link{dataset_ag_news}},
-  \code{\link{dataset_trec}}
+Other topic: 
+\code{\link{dataset_ag_news}()},
+\code{\link{dataset_trec}()}
 }
 \concept{topic}
 \keyword{datasets}

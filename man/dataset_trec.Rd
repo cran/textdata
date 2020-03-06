@@ -9,8 +9,15 @@
 \url{https://trec.nist.gov/data/qa.html}
 }
 \usage{
-dataset_trec(dir = NULL, split = c("train", "test"), version = c("6",
-  "50"), delete = FALSE, return_path = FALSE, clean = FALSE)
+dataset_trec(
+  dir = NULL,
+  split = c("train", "test"),
+  version = c("6", "50"),
+  delete = FALSE,
+  return_path = FALSE,
+  clean = FALSE,
+  manual_download = FALSE
+)
 }
 \arguments{
 \item{dir}{Character, path to directory where data will be stored. If
@@ -28,6 +35,10 @@ data. Defaults to "train".}
 
 \item{clean}{Logical, set \code{TRUE} to remove intermediate files. This can
 greatly reduce the size. Defaults to FALSE.}
+
+\item{manual_download}{Logical, set \code{TRUE} if you have manually
+downloaded the file and placed it in the folder designated by running
+this function with \code{return_path = TRUE}.}
 }
 \value{
 A tibble with 5,452 or 500 rows for "train" and "test"
@@ -82,8 +93,9 @@ test_50 <- dataset_trec(split = "test", version = "50")
 
 }
 \seealso{
-Other topic: \code{\link{dataset_ag_news}},
-  \code{\link{dataset_dbpedia}}
+Other topic: 
+\code{\link{dataset_ag_news}()},
+\code{\link{dataset_dbpedia}()}
 }
 \concept{topic}
 \keyword{datasets}
