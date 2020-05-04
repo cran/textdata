@@ -1,7 +1,7 @@
-ba6e9ab5ee7d5b1d06ff348091ca8d45 *DESCRIPTION
+d1a4f2dde7f96bb39500f5c89370211f *DESCRIPTION
 da5c99df12def62825ca3268c9874a1a *LICENSE
 3c31fc3e3619eea48b9649899bb28bdc *NAMESPACE
-3d7f30c967a9e70a5e8124173f5e4545 *NEWS.md
+a104355f2e827dbc8b6d52d4b726fd16 *NEWS.md
 0d6608cbc749e5f655cae75666f41314 *R/dataset_ag_news.R
 fc52e17582e1df87e97c4be64e586b7d *R/dataset_dbpedia.R
 806f1315290196a250a2fa5b294fedda *R/dataset_imdb.R
@@ -10,7 +10,7 @@ fc52e17582e1df87e97c4be64e586b7d *R/dataset_dbpedia.R
 50605a6bd864d533f1a414c5c017396b *R/download_functions.R
 530544480e99ac0120301f65b430cfd6 *R/embedding_glove.R
 b09a189448f236dc2571dbe57d5da3fb *R/info.R
-0875decb4afd3f96be1045694c565cf0 *R/lexicon_afinn.R
+6e898b30d11746adfdacda7a1ae4c21f *R/lexicon_afinn.R
 3f9180104881f88aac52a03bfa606f53 *R/lexicon_bing.R
 b257e760a7c913358926de44a76d4b0e *R/lexicon_loughran.R
 d73ccd7410bc4b71bb99e051a5493a7d *R/lexicon_nrc.R
@@ -24,7 +24,7 @@ fbf9330b706782a075032454ef2246e4 *build/vignette.rds
 10defa06d3cfb14bf6de0a60c274422b *inst/doc/How-to-add-a-data-set.R
 f84383f1b1a8c3f9436e4d253e126e7b *inst/doc/How-to-add-a-data-set.Rmd
 9d82b96bfb62aa176c18036022baec44 *inst/doc/How-to-add-a-data-set.html
-c9fa0a8a2ba680f3cf58cc53185ca9a1 *man/catalogue.Rd
+96263ceca0e906e83896a132c51eae92 *man/catalogue.Rd
 e419941186b196a93571549e522aa85c *man/dataset_ag_news.Rd
 7f512d9ad82b595c42ac20f3610bc22e *man/dataset_dbpedia.Rd
 cd51de571037233cdfe48bd2dfb552e5 *man/dataset_imdb.Rd
