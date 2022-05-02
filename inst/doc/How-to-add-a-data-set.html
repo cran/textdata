@@ -12,32 +12,64 @@
 
 
 
-<title>How-to-add-a-data-set</title>
+<title>How to add a data set</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 
-<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -46,9 +78,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -102,6 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 })();
 </script>
+
 
 
 
@@ -297,29 +330,49 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">How-to-add-a-data-set</h1>
+<h1 class="title toc-ignore">How to add a data set</h1>
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(textdata)</a></code></pre></div>
-<p>This package provides infrastructure to make text datasets available within R, even when they are too large to store within an R package or are licensed in such a way that prevents them from being included in OSS-licensed packages.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(textdata)</span></code></pre></div>
+<p>This package provides infrastructure to make text datasets available
+within R, even when they are too large to store within an R package or
+are licensed in such a way that prevents them from being included in
+OSS-licensed packages.</p>
 <p>Do you want to add a new dataset to the textdata package?</p>
 <ul>
-<li>Create a R file named <code>prefix_*.R</code> in the <code>R/</code> folder, where <code>*</code> is the name of the dataset. Supported prefixes include
+<li>Create a R file named <code>prefix_*.R</code> in the <code>R/</code>
+folder, where <code>*</code> is the name of the dataset. Supported
+prefixes include
 <ul>
 <li><code>dataset_</code></li>
 <li><code>lexicon_</code></li>
 </ul></li>
-<li>Inside that file create 3 functions named <code>download_*()</code>, <code>process_*()</code> and <code>dataset_*()</code>.
+<li>Inside that file create 3 functions named <code>download_*()</code>,
+<code>process_*()</code> and <code>dataset_*()</code>.
 <ul>
-<li>The <code>download_*()</code> function should take 1 argument named <code>folder_path</code>. It has 2 tasks, first it should check if the file is already downloaded. If it is already downloaded it should return <code>invisible()</code>. If the file isn’t at the path it should download the file to said path.</li>
-<li>The <code>process_*()</code> function should take 2 arguments, <code>folder_path</code> and <code>name_path</code>. <code>folder_path</code> denotes the the path to the file returned by <code>download_*</code> and <code>name_path</code> is the path to where the polished data should live. Main point of <code>process_*()</code> is to turn the downloaded file into a .rds file containing a tidy tibble.</li>
-<li>The <code>dataset_*()</code> function should wrap the <code>load_dataset()</code>.</li>
+<li>The <code>download_*()</code> function should take 1 argument named
+<code>folder_path</code>. It has 2 tasks, first it should check if the
+file is already downloaded. If it is already downloaded it should return
+<code>invisible()</code>. If the file isn’t at the path it should
+download the file to said path.</li>
+<li>The <code>process_*()</code> function should take 2 arguments,
+<code>folder_path</code> and <code>name_path</code>.
+<code>folder_path</code> denotes the the path to the file returned by
+<code>download_*</code> and <code>name_path</code> is the path to where
+the polished data should live. Main point of <code>process_*()</code> is
+to turn the downloaded file into a .rds file containing a tidy
+tibble.</li>
+<li>The <code>dataset_*()</code> function should wrap the
+<code>load_dataset()</code>.</li>
 </ul></li>
-<li>Add the <code>process_*()</code> function to the named list <code>process_functions</code> in the file process_functions.R.</li>
-<li>Add the <code>download_*()</code> function to the named list <code>download_functions</code> in the file download_functions.R.</li>
+<li>Add the <code>process_*()</code> function to the named list
+<code>process_functions</code> in the file process_functions.R.</li>
+<li>Add the <code>download_*()</code> function to the named list
+<code>download_functions</code> in the file download_functions.R.</li>
 <li>Modify the <code>print_info</code> list in the info.R file.</li>
-<li>Add <code>dataset_*.R</code> to the <span class="citation">@include</span> tags in <code>download_functions.R</code>.</li>
+<li>Add <code>dataset_*.R</code> to the <span class="citation">@include</span> tags in
+<code>download_functions.R</code>.</li>
 <li>Add the dataset to the table in <code>README.Rmd</code>.</li>
 <li>Add the dataset to <code>_pkgdown.yml</code>.</li>
 <li>Write a bullet in the <code>NEWS.md file</code>.</li>
@@ -328,14 +381,18 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div id="guidelines-for-textdata-datasets" class="section level1">
 <h1>Guidelines for textdata datasets</h1>
 <ul>
-<li>All datasets must have a license or terms of use clearly specified.</li>
+<li>All datasets must have a license or terms of use clearly
+specified.</li>
 <li>Data should be a vector or tibble.</li>
-<li>Use <code>word</code> instead of <code>words</code> for column names.</li>
+<li>Use <code>word</code> instead of <code>words</code> for column
+names.</li>
 </ul>
 </div>
 <div id="classification-datasets" class="section level1">
 <h1>Classification datasets</h1>
-<p>For datasets that comes with a testing and training dataset. Let the user pick which one to retrieve with a <code>split</code> argument similar to how <code>dataset_ag_news()</code> is doing.</p>
+<p>For datasets that comes with a testing and training dataset. Let the
+user pick which one to retrieve with a <code>split</code> argument
+similar to how <code>dataset_ag_news()</code> is doing.</p>
 </div>
 
 

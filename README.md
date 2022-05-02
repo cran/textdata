@@ -5,16 +5,15 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/EmilHvitfeldt/textdata/workflows/R-CMD-check/badge.svg)](https://github.com/EmilHvitfeldt/textdata/actions)
+[![R-CMD-check](https://github.com/EmilHvitfeldt/textdata/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EmilHvitfeldt/textdata/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/textdata)](https://CRAN.R-project.org/package=textdata)
 [![Downloads](http://cranlogs.r-pkg.org/badges/textdata)](https://cran.r-project.org/package=textdata)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3244433.svg)](https://doi.org/10.5281/zenodo.3244433)
 [![Codecov test
-coverage](https://codecov.io/gh/EmilHvitfeldt/textdata/branch/master/graph/badge.svg)](https://codecov.io/gh/EmilHvitfeldt/textdata?branch=master)
+coverage](https://codecov.io/gh/EmilHvitfeldt/textdata/branch/master/graph/badge.svg)](https://app.codecov.io/gh/EmilHvitfeldt/textdata?branch=master)
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 <!-- badges: end -->
 
 The goal of textdata is to provide access to text-related data sets for
@@ -55,11 +54,10 @@ After the first use, each time you use a function like
 
 ## Included text datasets
 
-As of today, the datasets included in textdata
-are:
+As of today, the datasets included in textdata are:
 
 | Dataset                                                         | Function                      |
-| --------------------------------------------------------------- | ----------------------------- |
+|-----------------------------------------------------------------|-------------------------------|
 | v1.0 sentence polarity dataset                                  | `dataset_sentence_polarity()` |
 | AFINN-111 sentiment lexicon                                     | `lexicon_afinn()`             |
 | Hu and Liu’s opinion lexicon                                    | `lexicon_bing()`              |
@@ -84,7 +82,7 @@ Check out each function’s documentation for detailed information
 Note that this project is released with a [Contributor Code of
 Conduct](https://github.com/EmilHvitfeldt/textdata/blob/master/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
-Feedback, bug reports (and fixes\!), and feature requests are welcome;
+Feedback, bug reports (and fixes!), and feature requests are welcome;
 file issues or seek support
-[here](http://github.com/EmilHvitfeldt/textdata/issues). For details on
-how to add a new dataset to this package, check out the vignette\!
+[here](https://github.com/EmilHvitfeldt/textdata/issues). For details on
+how to add a new dataset to this package, check out the vignette!

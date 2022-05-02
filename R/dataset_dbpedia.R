@@ -24,8 +24,8 @@
 #' }
 #'
 #' @source \url{https://papers.nips.cc/paper/5782-character-level-convolutional-networks-for-text-classification.pdf}
-#' @source \url{https://wiki.dbpedia.org/}
-#' @source \url{https://github.com/le-scientifique/torchDatasets/raw/master/dbpedia_csv.tar.gz}
+#' @source \url{https://www.dbpedia.org/}
+#' @source \url{https://github.com/srhrshr/torchDatasets/raw/master/dbpedia_csv.tar.gz}
 #' @inheritParams lexicon_afinn
 #' @param split Character. Return training ("train") data or testing ("test")
 #'     data. Defaults to "train".
@@ -40,7 +40,7 @@
 #' @family topic
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' dataset_dbpedia()
 #'
 #' # Custom directory
@@ -63,14 +63,15 @@
 dataset_dbpedia <- function(dir = NULL, split = c("train", "test"),
                             delete = FALSE, return_path = FALSE,
                             clean = FALSE, manual_download = FALSE) {
-
-  all_files <-  paste0("dbpedia_", c("train", "test"), ".rds")
+  all_files <- paste0("dbpedia_", c("train", "test"), ".rds")
   split <- match.arg(split)
   name <- paste0("dbpedia_", split, ".rds")
-  load_dataset(data_name = "dbpedia", name = name, dir = dir,
-               delete = delete, return_path = return_path, clean = clean,
-               clean_manual = all_files,
-               manual_download = manual_download)
+  load_dataset(
+    data_name = "dbpedia", name = name, dir = dir,
+    delete = delete, return_path = return_path, clean = clean,
+    clean_manual = all_files,
+    manual_download = manual_download
+  )
 }
 
 #' @importFrom utils download.file
@@ -79,39 +80,48 @@ download_dbpedia <- function(folder_path) {
   if (file_exists(file_path)) {
     return(invisible())
   }
-  download.file(url = "https://github.com/le-scientifique/torchDatasets/raw/master/dbpedia_csv.tar.gz",
-                destfile = file_path)
+  download.file(
+    url = "https://github.com/le-scientifique/torchDatasets/raw/master/dbpedia_csv.tar.gz",
+    destfile = file_path
+  )
 }
 
 #' @importFrom readr read_tsv write_rds cols col_character col_double
 #' @importFrom tibble tibble
 process_dbpedia <- function(folder_path, name_path) {
-
   file_path_test <- path(folder_path, "dbpedia_csv/test.csv")
   file_path_train <- path(folder_path, "dbpedia_csv/train.csv")
 
   zip_path <- path(folder_path, "dbpedia_csv.tar.gz")
 
-  untar(zip_path, files = c("dbpedia_csv/test.csv",
-                            "dbpedia_csv/train.csv"), exdir = folder_path)
+  untar(zip_path, files = c(
+    "dbpedia_csv/test.csv",
+    "dbpedia_csv/train.csv"
+  ), exdir = folder_path)
 
-  data_test <- read_csv(file_path_test, col_names = c("class", "title", "description"),
-                        col_types = cols(
-                          class = col_double(),
-                          title = col_character(),
-                          description = col_character()
-                        ))
-  data_train <- read_csv(file_path_train, col_names = c("class", "title", "description"),
-                         col_types = cols(
-                           class = col_double(),
-                           title = col_character(),
-                           description = col_character()
-                         ))
+  data_test <- read_csv(file_path_test,
+    col_names = c("class", "title", "description"),
+    col_types = cols(
+      class = col_double(),
+      title = col_character(),
+      description = col_character()
+    )
+  )
+  data_train <- read_csv(file_path_train,
+    col_names = c("class", "title", "description"),
+    col_types = cols(
+      class = col_double(),
+      title = col_character(),
+      description = col_character()
+    )
+  )
 
-  classes <- c("Company", "EducationalInstitution", "Artist", "Athlete",
-               "OfficeHolder", "MeanOfTransportation", "Building",
-               "NaturalPlace", "Village", "Animal", "Plant", "Album", "Film",
-               "WrittenWork")
+  classes <- c(
+    "Company", "EducationalInstitution", "Artist", "Athlete",
+    "OfficeHolder", "MeanOfTransportation", "Building",
+    "NaturalPlace", "Village", "Animal", "Plant", "Album", "Film",
+    "WrittenWork"
+  )
 
   data_test$class <- classes[data_test$class]
   data_train$class <- classes[data_train$class]
