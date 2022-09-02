@@ -1,3 +1,7 @@
+# textdata 0.4.4
+
+* Update path to correctly path source for NRC lexicon.
+
 # textdata 0.4.3
 
 * Fixed documentation to be HTML5 friendly.

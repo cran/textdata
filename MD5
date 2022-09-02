@@ -1,7 +1,7 @@
-c71120532351e7d3c480db5224a284a7 *DESCRIPTION
+5c4fbfb54b1e30b5cd7a59c854228cc8 *DESCRIPTION
 da5c99df12def62825ca3268c9874a1a *LICENSE
 aa6eb68caa5662f6b5d66103e01a5510 *NAMESPACE
-eb94f3e8c2d1a28c7516bad67637ff09 *NEWS.md
+6484555466291f749914cb27b9dd77aa *NEWS.md
 9de2365f963535564ee4b5686139892f *R/cache_info.R
 b1992990248f387f923ec2005fc6a48b *R/dataset_ag_news.R
 62e3ab144d33aebb44425ddd51004dd7 *R/dataset_dbpedia.R
@@ -14,7 +14,7 @@ cd4872a17428e4aace2bca0df1bf7955 *R/dataset_sentence_polarity.R
 bb93f9110fa41ac07d333a1d2ec8c102 *R/lexicon_afinn.R
 b4f404e83ee33f540e2433a64e4382d3 *R/lexicon_bing.R
 8615cee97e44cc5f0cf8823d2b43da24 *R/lexicon_loughran.R
-5533dac0a577496b7ed9337fe985d095 *R/lexicon_nrc.R
+7fc41efbfc526b92288be33e6496d5e8 *R/lexicon_nrc.R
 9a9da87ab26708a2b0b59bcfc36ccc5a *R/lexicon_nrc_eil.R
 14fd680f1123803812c9def083113af3 *R/lexicon_nrc_vad.R
 2d50d3cfaf6c14572cc4b8983d4c8f57 *R/load_dataset.R
@@ -25,7 +25,7 @@ dc8493c6068bce06fba8d0cdae0f0036 *README.md
 1664392f4009b2ffd4972830ee6fcc0d *build/vignette.rds
 10defa06d3cfb14bf6de0a60c274422b *inst/doc/How-to-add-a-data-set.R
 0f3d54fe215b09c0c4a6fd9a391f1dce *inst/doc/How-to-add-a-data-set.Rmd
-87b3a80c38295cd4e8d5d1972f5a21c8 *inst/doc/How-to-add-a-data-set.html
+bb0635a8174e5923b97c17eafe85e62f *inst/doc/How-to-add-a-data-set.html
 7acc902fb044bbf61a2e5159a6e35778 *man/cache_info.Rd
 96263ceca0e906e83896a132c51eae92 *man/catalogue.Rd
 66e1ff470af0400ccf0b80abfc1ff04a *man/dataset_ag_news.Rd
