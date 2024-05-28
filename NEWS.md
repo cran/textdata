@@ -1,3 +1,7 @@
+# textdata 0.4.5
+
+* Fixed bug where `lexicon_nrc_vad()` didn't have column names. (#53)
+
 # textdata 0.4.4
 
 * Update path to correctly path source for NRC lexicon.
